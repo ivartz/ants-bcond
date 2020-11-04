@@ -1,6 +1,6 @@
 # bash generate-models-dataset.sh 2>&1 | tee /mnt/HDD3TB/derivatives/cancer-sim-SAILOR_PROCESSED_MNI-01/runlog.txt
 
-run_evals=0
+run_evals=1
 
 # GitHub directory of cancer-sim
 simdir="/mnt/HDD3TB/code/cancer-sim"
@@ -10,6 +10,11 @@ dataset="/mnt/HDD3TB/derivatives/SAILOR_PROCESSED_MNI"
 
 # Output directory to store generated models
 outdir="/mnt/HDD3TB/derivatives/cancer-sim-SAILOR_PROCESSED_MNI-01"
+
+# Log the repository version
+echo "https://github.com/ivartz/ants-bcond/commits/master" > $outdir/ants-bcond-version.txt
+# shortened hash
+echo $(git log --pretty=format:'%h' -n 1) >> $outdir/ants-bcond-version.txt
 
 # Make array of patient folder names
 readarray -t patients < <(ls $dataset)
