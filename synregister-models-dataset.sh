@@ -6,9 +6,9 @@ run_evals=1
 dataset="/home/ubuntu/data"
 
 # Log the repository version
-#echo "https://github.com/ivartz/ants-bcond/commits/master" > $outdir/ants-bcond-version.txt
+echo "https://github.com/ivartz/ants-bcond/commits/master" > $outdir/ants-bcond-version.txt
 # shortened hash
-#echo $(git log --pretty=format:'%h' -n 1) >> $dataset/ants-bcond-version.txt
+echo $(git log --pretty=format:'%h' -n 1) >> $dataset/ants-bcond-version.txt
 
 # Make array of patient directories, full paths
 readarray -t patients < <(find $dataset -mindepth 1 -maxdepth 1 -type d)

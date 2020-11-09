@@ -16,8 +16,7 @@
 echo "sudo dpkg-reconfigure tzdata" > /home/ubuntu/postinstall-manual.sh
 
 # Install software
-apt update -y && apt upgrade -y
-apt install -y git rsync ants
+apt-get update -y && apt-get upgrade -y
+apt-get install -y nload ants
 
-git clone https://github.com/ivartz/ants-bcond
-#cd ants-bcond
+git clone https://github.com/ivartz/ants-bcond /home/ubuntu/ants-bcond
