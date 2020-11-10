@@ -8,7 +8,7 @@ run_evals=1
 dataset="/mnt/HDD3TB/derivatives/cancer-sim-SAILOR_PROCESSED_MNI-01-antscc"
 
 # Log the repository version
-echo "https://github.com/ivartz/ants-bcond/commits/master" > $outdir/ants-bcond-version.txt
+echo "https://github.com/ivartz/ants-bcond/commits/master" > $dataset/ants-bcond-version.txt
 # shortened hash
 echo $(git log --pretty=format:'%h' -n 1) >> $dataset/ants-bcond-version.txt
 
