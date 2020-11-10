@@ -1,5 +1,5 @@
 
-target_dir="/cygdrive/z/derivatives/cancer-sim-SAILOR_PROCESSED_MNI-01-distributed/distributed-bgo/done"
+target_dir="/cygdrive/z/derivatives/cancer-sim-SAILOR_PROCESSED_MNI-01-antsmi/nrec-done"
 
 run_evals=1
 
@@ -18,7 +18,7 @@ for ((i=0; i<num_ips; i++)); do
         #echo $c
         :
     fi
-    c="rsync -avh --info=progress2 -e 'ssh -o StrictHostKeyChecking=no -i /home/ivar/craiivar.key' ubuntu@$ip:/home/ubuntu/data/* $target_dir"
+    c="rsync -avh --info=progress2 -e 'ssh -o StrictHostKeyChecking=no -i /home/ivar/craiivar.key' ubuntu@$ip:/home/ubuntu/data2/* $target_dir"
     if [ $run_evals == 1 ]; then
         eval $c
     else
