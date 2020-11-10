@@ -11,12 +11,11 @@ readarray -t models < <(find $patientdir -mindepth 1 -maxdepth 1 -type d)
 
 for model in ${models[*]}; do
     #echo $model
-    outdir="$model/antssyn"
+    outdir="$model/antssyncc"
     c="mkdir -p $outdir"
     #echo $c
     if [ $run_evals == 1 ]; then
-        #eval $c
-        :
+        eval $c
     fi
     movingimg="$model/warped.nii.gz"
     c="bash synregistration.sh $fixedimg $movingimg $brainmask $outdir"

@@ -2,8 +2,10 @@
 
 run_evals=1
 
-# Directory of generated models from cancer-sim
-dataset="/home/ubuntu/data"
+# Directory of generated models from cancer-sim (on NREC VMs)
+#dataset="/home/ubuntu/data"
+# Directory of generated models from cancer-sim (on z600)
+dataset="/mnt/HDD3TB/derivatives/cancer-sim-SAILOR_PROCESSED_MNI-01-antscc"
 
 # Log the repository version
 echo "https://github.com/ivartz/ants-bcond/commits/master" > $outdir/ants-bcond-version.txt

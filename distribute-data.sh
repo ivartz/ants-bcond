@@ -11,7 +11,7 @@ run_evals=1
 
 #for ((i = 1; i<10; i++)); do c="mkdir $i"; eval $c; done
 
-readarray -t splits < <(find $dataset_dist -mindepth 1 -maxdepth 1 -type d)
+readarray -t splits < <(find $dataset_dist -mindepth 1 -maxdepth 1 -type d | sort | head -n 4)
 
 # NREC Ubuntu 18.04 LTS VMs
 ips=("158.39.77.86" "158.39.77.109" "158.39.77.161" "158.39.77.209")
@@ -26,20 +26,16 @@ for ((i=0; i<num_ips; i++)); do
     data=${splits[$i]}
     c="ssh-keygen -R $ip"
     if [ $run_evals == 1 ]; then
-        eval $c
+        #eval $c
+        :
     else
-        echo $c
+        #echo $c
+        :
     fi
-    c="rsync -avh --info=progress2 -e 'ssh -o StrictHostKeyChecking=no -i /home/ivar/craiivar.key' $data/* ubuntu@$ip:/home/ubuntu/data"
+    c="rsync -avh --info=progress2 -e 'ssh -o StrictHostKeyChecking=no -i /home/ivar/craiivar.key' $data/* ubuntu@$ip:/home/ubuntu/data2"
     if [ $run_evals == 1 ]; then
         eval $c
     else
         echo $c
     fi
 done
-
-: '
-for ((i=0; i<num_splits; i++)); do
-    echo ${splits[$i]}
-done
-'

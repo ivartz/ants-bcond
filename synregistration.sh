@@ -54,7 +54,7 @@ commandcc="$ANTsDirectory/antsRegistration \
     -x $brainmask \
     --verbose 0"
 
-echo $command
+echo $commandcc
 if [ $run_evals == 1 ]; then
-    eval $command
+    eval $commandcc
 fi
