@@ -1,6 +1,6 @@
 dir="/mnt/HDD3TB/derivatives/cancer-sim-SAILOR_PROCESSED_MNI-01-antsmi"
 
-readarray -t transforms < <(find $dir -type f -name transform0InverseWarp.nii.gz)
+readarray -t transforms < <(find $dir -type f -name transform0Warp.nii.gz)
 
 num_files=${#transforms[*]}
 
