@@ -14,7 +14,7 @@ Segmentation.nii.gz:
 3: Enhancing
 '
 model=$1
-synres="antssynmi"
+synres="antssyncc"
 
 # Vectors to show the error: GT - estimated displacement
 c="fslmaths $model/interp-field-*.*mm.nii.gz -sub $model/$synres/transform0InverseWarp-vec.nii.gz $model/$synres/diff.nii.gz"

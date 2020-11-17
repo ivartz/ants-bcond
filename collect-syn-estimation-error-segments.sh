@@ -1,9 +1,9 @@
 : '
 bash collect-syn-estimation-error-segments.sh > syn-mi-estimation-error-segments.txt
 '
-dataset="/mnt/HDD3TB/derivatives/cancer-sim-SAILOR_PROCESSED_MNI-01-antsmi"
+dataset="/mnt/HDD3TB/derivatives/cancer-sim-SAILOR_PROCESSED_MNI-01"
 
-synres="antssynmi"
+synres="antssyncc"
 
 readarray -t errorfiles < <(find $dataset -type f -wholename *$synres/mean-normnegdiff-segmentation.txt | sort)
 

@@ -2,7 +2,7 @@
 
 run_evals=1
 
-dataset="/mnt/HDD3TB/derivatives/cancer-sim-SAILOR_PROCESSED_MNI-01-antsmi"
+dataset="/mnt/HDD3TB/derivatives/cancer-sim-SAILOR_PROCESSED_MNI-01"
 
 # Make array of patient directories, full paths
 readarray -t patients < <(find $dataset -mindepth 1 -maxdepth 1 -type d)
