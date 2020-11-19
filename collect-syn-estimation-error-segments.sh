@@ -5,7 +5,7 @@ dataset="/mnt/HDD3TB/derivatives/cancer-sim-SAILOR_PROCESSED_MNI-01"
 
 synres="antssyncc"
 
-readarray -t errorfiles < <(find $dataset -type f -wholename *$synres/mean-normnegdiff-segmentation.txt | sort)
+readarray -t errorfiles < <(find $dataset -type f -wholename *$synres/mean-normnegdiff-relative-segmentation.txt | sort)
 
 echo $(printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" "patient" "model" "disp" "grange" "idf" "vecs" "angle" "splo" "sm" "pres" "pabs" "necrosis" "edema" "enhancing")
 
