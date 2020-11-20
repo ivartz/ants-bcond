@@ -1,11 +1,16 @@
 : '
-bash collect-syn-estimation-error-segments.sh > syn-mi-estimation-error-segments.txt
+bash collect-syn-cc-estimation-error-segments.sh 0 > syn-cc-estimation-error-segments.txt
 '
 dataset="/mnt/HDD3TB/derivatives/cancer-sim-SAILOR_PROCESSED_MNI-01"
 
 synres="antssyncc"
+if [ $1 -eq 0 ]; then
+    resfile="mean-normdiff-segmentation.txt"
+elif [ $1 -eq 1 ]; then
+    resfile="mean-normdiff-relative-segmentation.txt"
+fi
 
-readarray -t errorfiles < <(find $dataset -type f -wholename *$synres/mean-normnegdiff-relative-segmentation.txt | sort)
+readarray -t errorfiles < <(find $dataset -type f -wholename *$synres/$resfile | sort)
 
 echo $(printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" "patient" "model" "disp" "grange" "idf" "vecs" "angle" "splo" "sm" "pres" "pabs" "necrosis" "edema" "enhancing")
 

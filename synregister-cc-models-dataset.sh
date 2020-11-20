@@ -1,21 +1,18 @@
-# bash analyse-syn-dataset.sh
+# bash synregister-cc-models-dataset.sh
 
 run_evals=1
 
+# Directory of generated models from cancer-sim, copied and ready
+# to be processed and results added to it
 dataset="/mnt/HDD3TB/derivatives/cancer-sim-SAILOR_PROCESSED_MNI-01"
 
 # Make array of patient directories, full paths
 readarray -t patients < <(find $dataset -mindepth 1 -maxdepth 1 -type d)
 
-num_patients=${#patients[*]}
-
-i=1
-
 for patient in ${patients[*]}; do
-    echo "$i/$num_patients"
-    c="bash analyse-syn-patient.sh $patient"
+    c="bash synregister-cc-models-patient.sh $patient"
+    #echo $c
     if [ $run_evals == 1 ]; then
         eval $c
     fi
-    i=$(($i+1))
 done

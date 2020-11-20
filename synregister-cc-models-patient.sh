@@ -10,16 +10,13 @@ brainmask="$patientdir/BrainExtractionMask.nii.gz"
 readarray -t models < <(find $patientdir -mindepth 1 -maxdepth 1 -type d)
 
 for model in ${models[*]}; do
-    #echo $model
     outdir="$model/antssyncc"
     c="mkdir -p $outdir"
-    #echo $c
     if [ $run_evals == 1 ]; then
         eval $c
     fi
     movingimg="$model/warped.nii.gz"
-    c="bash synregistration.sh $fixedimg $movingimg $brainmask $outdir"
-    #echo $c
+    c="bash synregistration-cc.sh $fixedimg $movingimg $brainmask $outdir"
     if [ $run_evals == 1 ]; then
         eval $c
     fi
